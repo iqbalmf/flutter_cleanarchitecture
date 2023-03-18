@@ -10,11 +10,12 @@ import 'package:equatable/equatable.dart';
  * Package
  */
 
-class GetConcreteNumberTrivia extends UseCase<NumberTrivia, Params>{
+class GetConcreteNumberTrivia extends UseCase<NumberTrivia, Params> {
   final NumberTriviaRepository? repository;
 
   GetConcreteNumberTrivia(this.repository);
 
+  @override
   Future<Either<Failure, NumberTrivia>?> call(Params params) async {
     return await repository?.getConcreteNumberTrivia(params.number);
   }

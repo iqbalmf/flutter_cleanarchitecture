@@ -1,7 +1,7 @@
 import 'package:clean_architecture/core/usecase/usecase.dart';
 import 'package:clean_architecture/domain/entity/number_trivia.dart';
 import 'package:clean_architecture/domain/repositories/number_trivia_repository.dart';
-import 'package:clean_architecture/domain/usecase/get_random_number_trivia.dart';
+import 'package:clean_architecture/domain/usecase/get_random_number_trivia_usecase.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';

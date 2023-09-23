@@ -8,7 +8,7 @@ import 'network_info_impl_test.mocks.dart';
 
 @GenerateMocks([InternetConnectionChecker])
 void main() {
-  NetworkInfoImpl? networkInfoImpl;
+  late NetworkInfoImpl networkInfoImpl;
   var mockDataConnectionChecker = MockInternetConnectionChecker();
 
   setUp(() {
@@ -24,7 +24,7 @@ void main() {
       when(mockDataConnectionChecker.hasConnection)
           .thenAnswer((_) async => true);
       //act
-      final result = await networkInfoImpl?.isConnected;
+      final result = await networkInfoImpl.isConnected;
       //assert
       verify(mockDataConnectionChecker.hasConnection);
       expect(result, true);

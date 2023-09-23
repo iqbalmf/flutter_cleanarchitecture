@@ -13,8 +13,8 @@ class MockNumberTriviaRepository extends Mock
     implements NumberTriviaRepository {}
 
 void main() {
-  GetConcreteNumberTrivia? usecase;
-  MockNumberTriviaRepository? mockNumberTriviaRepository;
+  late GetConcreteNumberTrivia usecase;
+  late MockNumberTriviaRepository mockNumberTriviaRepository;
   setUp(() {
     mockNumberTriviaRepository = MockNumberTriviaRepository();
     usecase = GetConcreteNumberTrivia(mockNumberTriviaRepository);
@@ -26,13 +26,13 @@ void main() {
     'Should get trivia for the number from repository',
     () async {
       //arrange
-      when(mockNumberTriviaRepository?.getConcreteNumberTrivia(any))
+      when(mockNumberTriviaRepository.getConcreteNumberTrivia(any))
           .thenAnswer((_) async => Right(tNumberTrivia));
       //act
-      final result = await usecase?.call(Params(number: tNumber));
+      final result = await usecase.call(Params(number: tNumber));
       //assert
       expect(result, Right(tNumberTrivia));
-      verify(mockNumberTriviaRepository?.getConcreteNumberTrivia(tNumber));
+      verify(mockNumberTriviaRepository.getConcreteNumberTrivia(tNumber));
       verifyNoMoreInteractions(mockNumberTriviaRepository);
     },
   );
